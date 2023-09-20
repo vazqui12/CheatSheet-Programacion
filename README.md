@@ -13,7 +13,7 @@ En el siguiente repositorio se van a subir diferentes ejercicios, de varias difi
 
 Para instalar basta con ejecutar los siguientes comandos:
 
-- git clone https://github.com/vazqui12/ScriptingBash.git
+- git clone [https://github.com/vazqui12/ScriptingBash.git](https://github.com/vazqui12/ScriptingBash.git)
 
 - cd ScriptingBash
 
