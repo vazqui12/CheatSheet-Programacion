@@ -447,7 +447,7 @@ find /path -type f -mtime +30 -delete      # Delete files that haven't been modi
 
 
 ##############################################################################
-# FIN IN FILES
+# FIND IN FILES
 ##############################################################################
 
 grep 'foo' /bar.txt                         # Search for 'foo' in file 'bar.txt'
