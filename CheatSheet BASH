@@ -76,6 +76,7 @@ which bash          # finds out which program is executed as 'bash' (default: /b
 
 clear               # clears content on window (hide displayed lines)
 
+
 ##############################################################################
 # BASH SCRIPTINGS BASICS
 ##############################################################################
@@ -112,6 +113,7 @@ ${ }	              # Used for string manipulation and variable interpolation.
 ##############################################################################
 # VARIABLES
 ##############################################################################
+
 varname=value                # defines a variable
 varname=value command        # defines a variable to be in the environment of a particular subprocess
 echo $varname                # checks a variable's value
@@ -242,7 +244,7 @@ statement1 || statement2  # or operator
 -a                        # and operator inside a test conditional expression
 -o                        # or operator inside a test conditional expression
 
-# STRINGS
+#STRINGS
 
 str1 == str2               # str1 matches str2
 str1 != str2               # str1 does not match str2
@@ -253,7 +255,7 @@ str1 \< str2               # str1 is sorted before str2
 -n str1                    # str1 is not null (has length greater than 0)
 -z str1                    # str1 is null (has length 0)
 
-# FILES
+#FILES
 
 -a file                   # file exists or its compilation is successful
 -d file                   # file exists and is a directory
@@ -269,7 +271,7 @@ str1 \< str2               # str1 is sorted before str2
 file1 -nt file2           # file1 is newer than file2
 file1 -ot file2           # file1 is older than file2
 
-# NUMBERS
+#NUMBERS
 
 -lt                       # less than
 -le                       # less than or equal
@@ -277,6 +279,7 @@ file1 -ot file2           # file1 is older than file2
 -ge                       # greater than or equal
 -gt                       # greater than
 -ne                       # not equal
+
 
 ##############################################################################
 # BASH DICTIONARIES
@@ -299,9 +302,11 @@ for val in "${sounds[@]}"; do
     echo $val
 done
 
+
 ##############################################################################
 # BASH ARRAYS
 ##############################################################################
+
 Fruits=('Apple' 'Banana' 'Orange')
 
 Fruits[0]="Apple"
@@ -317,15 +322,15 @@ declare -a Numbers=(1 2 3)               # declare construct
 
 Numbers+=(4 5)                           # Append => 1 2 3 4 5
 
-${Fruits[0]}	        #  First element
-${Fruits[-1]}	        #  Last element
-${Fruits[*]}	        #  All elements
-${Fruits[@]}	        #  All elements
-${#Fruits[@]}	        #  Number of all
-${#Fruits}	          #  Length of 1st
-${#Fruits[3]}	        #  Length of nth
-${Fruits[@]:3:2}	    #  Range
-${!Fruits[@]}	        #  Keys of all
+${Fruits[0]}	        # First element
+${Fruits[-1]}	        # Last element
+${Fruits[*]}	        # All elements
+${Fruits[@]}	        # All elements
+${#Fruits[@]}	        # Number of all
+${#Fruits}	          # Length of 1st
+${#Fruits[3]}	        # Length of nth
+${Fruits[@]:3:2}	    # Range
+${!Fruits[@]}	        # Keys of all
 
 
 Fruits=('Apple' 'Banana' 'Orange')    # Iteration
@@ -345,10 +350,10 @@ Fruits=("${Fruits[@]}")                  # Duplicate
 Fruits=("${Fruits[@]}" "${Veggies[@]}")  # Concatenate
 lines=(`cat "logfile"`)                  # Read from file
 
+
 ##############################################################################
 # INPUT/OUTPUT REDIRECTORS
 ##############################################################################
-
 
 cmd1|cmd2  # pipe; takes standard output of cmd1 as standard input to cmd2
 < file     # takes standard input from file
@@ -373,7 +378,10 @@ n<&-       # closes the input from file descriptor n
 
 |tee <file># output command to both terminal and a file (-a to append to file)
 
-## File Permissions
+
+##############################################################################
+# FILE PERMISSIONS
+##############################################################################
 
 #	Permission	            rwx	  Binary
 7	read, write and execute	rwx	  111
@@ -407,7 +415,9 @@ chmod a+x foo.sh         # Give everybody execute permission
 chmod +x foo.sh          # Give everybody execute permission
 
 
-## Finding Files
+##############################################################################
+# FINDING FILES
+##############################################################################
 
 Find binary files for a command.
 
@@ -435,7 +445,10 @@ find /path -type l -name foo.txt           # Find a symbolic link
 find /path -type f -mtime +30              # Find files that haven't been modified in 30 days
 find /path -type f -mtime +30 -delete      # Delete files that haven't been modified in 30 days
 
-## Find in Files
+
+##############################################################################
+# FIN IN FILES
+##############################################################################
 
 grep 'foo' /bar.txt                         # Search for 'foo' in file 'bar.txt'
 grep 'foo' /bar -r|--recursive              # Search for 'foo' in directory 'bar'
@@ -453,7 +466,10 @@ grep 'foo\|bar' /baz -R                     # Search for 'foo' or 'bar' in direc
 grep --extended-regexp|-E 'foo|bar' /baz -R # Use regular expressions
 egrep 'foo|bar' /baz -R                     # Use regular expressions
 
-## Replace in Files
+
+##############################################################################
+# REPLACE IN FILES
+##############################################################################
 
 sed 's/fox/bear/g' foo.txt               # Replace fox with bear in foo.txt and output to console
 sed 's/fox/bear/gi' foo.txt              # Replace fox (case insensitive) with bear in foo.txt and output to console
@@ -461,7 +477,10 @@ sed 's/red fox/blue bear/g' foo.txt      # Replace red with blue and fox with be
 sed 's/fox/bear/g' foo.txt > bar.txt     # Replace fox with bear in foo.txt and save in bar.txt
 sed 's/fox/bear/g' foo.txt -i|--in-place # Replace fox with bear and overwrite foo.txt
 
-## Packages
+
+##############################################################################
+# PACKAGES
+##############################################################################
 
 apt update                   # Refreshes repository index
 apt search wget              # Search for a package
@@ -473,7 +492,9 @@ apt remove wget              # Removes the wget package
 apt upgrade                  # Upgrades all upgradable packages
 
 
-## Shutdown and Reboot
+##############################################################################
+# SHUTDOWN AND REBOOT
+##############################################################################
 
 shutdown                     # Shutdown in 1 minute
 shutdown now "Cya later"     # Immediately shut down
@@ -488,7 +509,10 @@ shutdown -c                  # Cancel a shutdown or reboot
 reboot                       # Reboot now
 reboot -f                    # Force a reboot
 
-## Date & Time
+
+##############################################################################
+# DATE & TIME
+##############################################################################
 
 date                   # Print the date and time
 date --iso-8601        # Print the ISO8601 date
@@ -497,10 +521,13 @@ date --iso-8601=ns     # Print the ISO8601 date and time
 time tree              # Time how long the tree command takes to execute
 
 
-### Scheduled Tasks
+##############################################################################
+# SCHEDULED TASKS
+##############################################################################
 
    *      *         *         *           *
 Minute, Hour, Day of month, Month, Day of the week
+
 crontab -l                 # List cron tab
 crontab -e                 # Edit cron tab in Vim
 crontab /path/crontab      # Load cron tab from a file
@@ -522,7 +549,9 @@ at 12:34 PM next month     # Create a task in Vim to execute at 12:34 PM next mo
 at tomorrow                # Create a task in Vim to execute tomorrow
 
 
-## HTTP Requests
+##############################################################################
+# HTTP REQUESTS
+##############################################################################
 
 curl https://example.com                               # Return response body
 curl -i|--include https://example.com                  # Include status code and HTTP headers
@@ -536,7 +565,9 @@ wget https://example.com/file.txt .                            # Download a file
 wget -O|--output-document foo.txt https://example.com/file.txt # Output to a file with the specified name
 
 
-## Network Troubleshooting
+##############################################################################
+# NETWORK TROUBLESHOOTING
+##############################################################################
 
 ping example.com            # Send multiple ping requests using the ICMP protocol
 ping -c 10 -i 5 example.com # Make 10 attempts, 5 seconds apart
@@ -557,23 +588,28 @@ nmap 0.0.0.0 -p1-65535      # Scan for open ports on localhost between 1 and 655
 nmap 192.168.4.3            # Scan for the 1000 most common open ports on a remote IP address
 nmap -sP 192.168.1.1/24     # Discover all machines on the network by ping'ing them
 
-## DNS
+
+##############################################################################
+# DNS
+##############################################################################
 
 host example.com            # Show the IPv4 and IPv6 addresses
-
 dig example.com             # Show complete DNS information
-
 cat /etc/resolv.conf        # resolv.conf lists nameservers
 
 
-## Hardware
+##############################################################################
+# HARDWARE
+##############################################################################
 
 lsusb                  # List USB devices
 lspci                  # List PCI hardware
 lshw                   # List all hardware
 
 
-## Secure Shell Protocol (SSH)
+##############################################################################
+# SECURE SHELL PROTOCOL (SSH)
+##############################################################################
 
 ssh hostname                 # Connect to hostname using your current user name over the default SSH port 22
 ssh -i foo.pem hostname      # Connect to hostname using the identity file
@@ -591,12 +627,16 @@ Host name
 $ ssh name
 
 
-## Secure Copy
+##############################################################################
+# SECURE COPY
+##############################################################################
 
 scp foo.txt ubuntu@hostname:/home/ubuntu # Copy foo.txt into the specified remote directory
 
 
-## Bash Profile
+##############################################################################
+# BASH PROFILE
+##############################################################################
 
 bash - .bashrc
 zsh - .zshrc
@@ -619,18 +659,18 @@ alias df='df -h'
 alias du='du -h'
 
 
-## Environment Variables
-
-#!/bin/bash
+##############################################################################
+# ENVIRONMENT VARIABLES
+##############################################################################
 
 env            # List all environment variables
 echo $PATH     # Print PATH environment variable
 export FOO=Bar # Set an environment variable
 
 
-## Exit Codes
-
-#!/bin/bash
+##############################################################################
+# EXIT CODES
+##############################################################################
 
 exit 0   # Exit the script successfully
 exit 1   # Exit the script unsuccessfully
@@ -640,7 +680,6 @@ echo $?  # Print the last exit code
 ##############################################################################
 # PROCESS HANDLING
 ##############################################################################
-
 
 # To suspend a job, type CTRL+Z while it is running. You can also suspend a job with CTRL+Y.
 # This is slightly different from CTRL+Z in that the process is only stopped when it attempts to read input from terminal.
@@ -686,7 +725,6 @@ yes                 # give yes response everytime an input is requested from scr
 # The function refers to passed arguments by position (as if they were positional parameters), that is, $1, $2, and so forth.
 # $@ is equal to "$1" "$2"... "$N", where N is the number of positional parameters. $# holds the number of positional parameters.
 
-
 function functname() {
   shell commands
 }
@@ -694,15 +732,11 @@ function functname() {
 unset -f functname  # deletes a function definition
 declare -f          # displays all defined functions in your login session
 
-## Exit Codes
-#!/bin/bash
 
-exit 0   # Exit the script successfully
-exit 1   # Exit the script unsuccessfully
-echo $?  # Print the last exit code
+##############################################################################
+# IF STATEMENTS
+##############################################################################
 
-
-## If Statements
 #!/bin/bash
 
 if [[$foo = 'bar']]; then
@@ -716,13 +750,19 @@ else
 fi
 
 
-## Inline If Statements
+##############################################################################
+# INLINE IF STATEMENTS
+##############################################################################
+
 #!/bin/bash
 
 [[ $USER = 'rehan' ]] && echo 'yes' || echo 'no'
 
 
-## While Loops
+##############################################################################
+# FWHILE LOOPS
+##############################################################################
+
 #!/bin/bash
 
 declare -i counter
@@ -733,7 +773,10 @@ while [$counter -gt 2]; do
 done
 
 
-## For Loops
+##############################################################################
+# FOR LOOPS
+##############################################################################
+
 #!/bin/bash
 
 for i in {0..10..2}
@@ -752,7 +795,10 @@ for filename in *;
   done
 
 
-## Case Statements
+##############################################################################
+# CASE STATEMENTS
+##############################################################################
+
 #!/bin/bash
 
 echo "What's the weather like tomorrow?"
@@ -773,11 +819,15 @@ esac
 ##############################################################################
 # COLORS AND BACKGROUNDS 
 ##############################################################################
+
 # note: \e or \x1B also work instead of \033 
+
 # Reset
+
 Color_Off='\033[0m' # Text Reset
 
 # Regular Colors
+
 Black='\033[0;30m'  # Black
 Red='\033[0;31m'    # Red
 Green='\033[0;32m'  # Green
@@ -788,6 +838,7 @@ Cyan='\033[0;36m'   # Cyan
 White='\033[0;97m'  # White
 
 # Additional colors
+
 LGrey='\033[0;37m'  # Ligth Gray
 DGrey='\033[0;90m'  # Dark Gray
 LRed='\033[0;91m'   # Ligth Red
@@ -797,8 +848,8 @@ LBlue='\033[0;94m'  # Ligth Blue
 LPurple='\033[0;95m'# Light Purple
 LCyan='\033[0;96m'  # Ligth Cyan
 
-
 # Bold
+
 BBlack='\033[1;30m' # Black
 BRed='\033[1;31m'   # Red
 BGreen='\033[1;32m' # Green
@@ -809,6 +860,7 @@ BCyan='\033[1;36m'  # Cyan
 BWhite='\033[1;37m' # White
 
 # Underline
+
 UBlack='\033[4;30m' # Black
 URed='\033[4;31m'   # Red
 UGreen='\033[4;32m' # Green
@@ -819,6 +871,7 @@ UCyan='\033[4;36m'  # Cyan
 UWhite='\033[4;37m' # White
 
 # Background
+
 On_Black='\033[40m' # Black
 On_Red='\033[41m'   # Red
 On_Green='\033[42m' # Green
@@ -829,7 +882,10 @@ On_Cyan='\033[46m'  # Cyan
 On_White='\033[47m' # White
 
 # Example of usage
+
 echo -e "${Green}This is GREEN text${Color_Off} and normal text"
 echo -e "${Red}${On_White}This is Red test on White background${Color_Off}" 
+
 # option -e is mandatory, it enable interpretation of backslash escapes
+
 printf "${Red} This is red \n"
