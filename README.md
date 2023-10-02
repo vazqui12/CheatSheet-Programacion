@@ -1,8 +1,13 @@
-# 💻 Scripting-in-Bash
+# 💻 Lenguajes de Programación
 
 ## 📘 Descripción
 
-En el siguiente repositorio se van a subir diferentes ejercicios, de varias dificultades (facil, media, dificil), que van a ayudar a mejorar nuestro conocimiento y habilidad en el lenguaje Bash.
+La idea de este repositorio es crear una Base de Conocimientos a cerca de los lenguajes de programación necesarios para Pentesting.
+La información que se pretende recoger es:
+  - Lenguaje Bash
+  - Lenguaje Python
+  - Plantilla Script Bash
+  - Ejercicios Bash (de diferentes dificultades)
 
 ## Tabla de Contenidos
 
@@ -13,11 +18,9 @@ En el siguiente repositorio se van a subir diferentes ejercicios, de varias difi
 
 Para instalar basta con ejecutar los siguientes comandos:
 
-- git clone [https://github.com/vazqui12/ScriptingBash.git](https://github.com/vazqui12/ScriptingBash.git)
+- git clone https://github.com/vazqui12/CheatSheet-Programacion.git
 
-- cd ScriptingBash
-
-- ./"archivo .sh que queremos ejecutar"
+- cd CheatSheet-Programación
 
 ## 💰 Contribución
 
