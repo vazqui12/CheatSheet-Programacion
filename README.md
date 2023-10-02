@@ -9,7 +9,7 @@ La información que se pretende recoger es:
   - Plantilla Script Bash
   - Ejercicios Bash (de diferentes dificultades)
 
-## Tabla de Contenidos
+## 📑 Tabla de Contenidos
 
 - [Instalación](#instalación)
 - [Contribución](#contribución)
